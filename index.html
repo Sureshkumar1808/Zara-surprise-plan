@@ -81,6 +81,316 @@ p{ font-size:16px; line-height:1.9; color:#ddd4e7; }
 .video-overlay {
   display: none; position: fixed; inset: 0; background: #000;
   z-index: 10000; align-items: center; justify-content: center; opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.video-overlay.show { display: flex; opacity: 1; }
+.video-overlay video { width: 100%; height: 100%; object-fit: contain; }
+
+.unmute-btn {
+  position: absolute; bottom: 40px; padding: 12px 24px;
+  background: rgba(142, 77, 255, 0.4); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.6); border-radius: 30px;
+  color: #fff; font-size: 13px; font-weight: bold; cursor: pointer; z-index: 10001;
+  box-shadow: 0 0 20px rgba(142,77,255,0.5);
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 1 -->
+<section class="screen active" id="s1">
+  <div class="bg"></div><div class="stars"></div>
+  <div class="content">
+    <div class="korean">보라해, ZARA 💜</div>
+    <h1>Hey Zara...</h1>
+    <p>Inniku unaku oru normal<br>birthday wish illa.</p>
+    <p class="small" style="margin-top:15px;">Konjam different-ah irukum. ✦</p>
+    <button class="btn" onclick="next(2)">TAP TO ENTER ✦</button>
+  </div>
+  <div class="footer">a little universe made for you</div>
+</section>
+
+<!-- SLIDE 2 -->
+<section class="screen" id="s2">
+  <div class="bg"></div><div class="stars"></div>
+  <div class="content">
+    <div class="korean">오늘 밤</div>
+    <h2>Before I wish you...</h2>
+    <div class="card">
+      <p>Oru small thing sollanum.</p>
+      <p style="margin-top:18px;"><span class="highlight">Not everything beautiful needs a photograph.</span></p>
+      <p style="margin-top:18px;">Sila memories-ku<br>photo thevaiye illa.</p>
+    </div>
+    <button class="btn" onclick="next(3)">KEEP GOING →</button>
+  </div>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="screen" id="s3">
+  <div class="bg"></div><div class="stars"></div>
+  <div class="content">
+    <div class="korean">우리의 이야기</div>
+    <h2>Clg days...</h2>
+    <div class="card">
+      <p class="line">• Fight irundhuchu.</p>
+      <p class="line">• Love irundhuchu.</p>
+      <p class="line">• Happiness irundhuchu.</p>
+      <p class="line">• Dating irundhuchu.</p>
+      <p class="line">• Random talks irundhuchu.</p>
+      <p style="margin-top:20px;"><strong>Aana...</strong></p>
+      <p class="quote">Edhuvum marakala, Zara.</p>
+    </div>
+    <button class="btn" onclick="next(4)">ONE MORE THING...</button>
+  </div>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="screen" id="s4">
+  <div class="bg"></div><div class="stars"></div>
+  <div class="content">
+    <div style="font-size:45px;">📷</div>
+    <h2>Sad but Beautiful 🖤</h2>
+    <div class="card">
+      <p>Usually un birthday-ku namma photos vechu edhachum pannirupan.</p>
+      <p style="margin-top:18px;">But indha time...</p>
+      <p class="quote">En kita un single photo kooda illa. 😭</p>
+      <p>But honestly...<br><strong>It's okay.</strong></p>
+    </div>
+    <button class="btn" onclick="next(5)">THEN WHAT DID YOU MAKE? 👀</button>
+  </div>
+</section>
+
+<!-- SLIDE 5 -->
+<section class="screen" id="s5">
+  <div class="bg"></div><div class="stars"></div>
+  <div class="content">
+    <p class="small">This page is not about our memories.</p>
+    <div class="name" style="margin-top:15px;">ZARA</div>
+    <p style="margin-top:20px;">Because today...</p>
+    <p class="quote">I want you to choose yourself.</p>
+    <button class="btn" onclick="next(6)">YOUR CHAPTER 💜</button>
+  </div>
+</section>
+
+<!-- SLIDE 6 -->
+<section class="screen" id="s6">
+  <div class="bg"></div><div class="stars"></div>
+  <div class="content">
+    <div class="korean">나 자신을 사랑해</div>
+    <h2>For Zara 💜</h2>
+    <div class="card">
+      <p class="line">• Unna nee love pannu.</p>
+      <p class="line">• Unna nee choose pannu.</p>
+      <p class="line">• Un happiness-ku priority kudu.</p>
+      <p class="line">• Un peace-ah protect pannu.</p>
+      <p class="line">• Nee evlo far vandhiruka nu proud-ah iru.</p>
+      <div class="big-heart">💜</div>
+      <p class="quote">Zara deserves Zara.</p>
+      <p class="small">Eppovume un life-la unakkum oru special place irukanum.</p>
+    </div>
+    <button class="btn" onclick="next(7)">LET'S GO TO SEOUL 🌙</button>
+  </div>
+</section>
+
+<!-- SLIDE 7 -->
+<section class="screen" id="s7">
+  <div class="bg"></div><div class="stars"></div>
+  <div class="content">
+    <div class="korean">서울의 밤</div>
+    <h2>Imagine...</h2>
+    <div class="card">
+      <p>Seoul.</p><p>Midnight.</p><p>Purple sky.</p><p>Stars everywhere.</p>
+      <p class="quote">Un favourite songs background-la play aagitu iruku...</p>
+      <p>Nee mattum un own little world-la happy-ah iruka.</p>
+      <div class="seoul">SEOUL • PURPLE NIGHT • 11:11</div>
+    </div>
+    <button class="btn" onclick="next(8)">MAKE A WISH ✦</button>
+  </div>
+</section>
+
+<!-- SLIDE 8 -->
+<section class="screen" id="s8">
+  <div class="bg"></div><div class="stars"></div>
+  <div class="content">
+    <div class="korean">생일 축하해</div>
+    <div class="name">ZARA</div>
+    <h2 style="margin-top:20px;">Happy Birthday 💜</h2>
+    <div class="card">
+      <p>Every year un birthday-ku en wishes unique-ah irukanum nu ninaipen.</p>
+      <p style="margin-top:18px;">Indha time photos illa...</p>
+      <p style="margin-top:18px;">so...</p>
+      <p class="quote">Unakkaga oru little world create panniten. 💜</p>
+    </div>
+    <button class="btn" onclick="next(9)">NEXT ❤️</button>
+  </div>
+</section>
+
+<!-- SLIDE 9 -->
+<section class="screen" id="s9">
+  <div class="bg"></div><div class="stars"></div>
+  <div class="content">
+    <h2>Crazy Memories ❤️</h2>
+    <div class="card">
+      <p class="quote">Namma rendu perum ona videos parpom. 🫣</p>
+      <p class="line">Innum un showoff-ku waiting... 👀❤️</p>
+      <p class="line" style="margin-top:15px;">Clg bus la kuda butterfly ku massage panuvan. 🫣❤️‍🔥</p>
+      <p class="highlight" style="margin-top:20px;">Missing those things... 🤧</p>
+    </div>
+    <button class="btn" onclick="next(10)">FINAL MESSAGE 💜</button>
+  </div>
+</section>
+
+<!-- SLIDE 10 -->
+<section class="screen" id="s10">
+  <div class="bg"></div><div class="stars"></div>
+  <div class="content">
+    <p class="small">Zara...</p>
+    <div class="name" style="margin-top:15px;">💜</div>
+    <p class="quote">Purple You, Zara 💚</p>
+    <p style="margin-top:20px;">— <strong>Mu 🖤</strong></p>
+
+    <div class="card" style="margin-top:25px;">
+      <p class="small">
+        <strong>Little Happiness</strong><br>
+        Itha ready pandra apo kuda nee kudutha T-shirt dhaan potrukan. 😌🖤
+      </p>
+    </div>
+
+    <p class="seoul" style="margin-top:25px;">Happy Birthday Zara 💚<br>Purple You 💜</p>
+    <p class="small" style="margin-top:12px; font-weight: bold;">Loved by Mu 🖤</p>
+
+    <button class="btn" onclick="startVideoNow()">PLAY OUR MEMORY VIDEO 🎥 💜</button>
+  </div>
+</section>
+
+<!-- FULLSCREEN VIDEO PLAYER -->
+<div class="video-overlay" id="videoOverlay">
+  <video id="finalVideo" playsinline preload="auto">
+    <source src="VID-20260817-WA0001.mp4" type="video/mp4">
+  </video>
+  <button class="unmute-btn" id="unmuteBtn" onclick="toggleAudio()">🔊 Tap for Sound</button>
+</div>
+
+<script>
+function createStars(){
+  document.querySelectorAll('.stars').forEach(container=>{
+    for(let i=0;i<35;i++){
+      const star=document.createElement('div');
+      star.className='star';
+      star.style.left=Math.random()*100+'%';
+      star.style.top=Math.random()*100+'%';
+      star.style.animationDelay=(Math.random()*3)+'s';
+      star.style.animationDuration=(2+Math.random()*3)+'s';
+      container.appendChild(star);
+    }
+  });
+}
+createStars();
+
+let autoPlayTimer = null;
+
+function next(number){
+  document.querySelectorAll('.screen').forEach(s=>{ s.classList.remove('active'); });
+  const target=document.getElementById('s'+number);
+  target.classList.add('active');
+  window.scrollTo({ top:0, behavior:'smooth' });
+
+  if(autoPlayTimer) clearTimeout(autoPlayTimer);
+
+  if(number === 10){
+    autoPlayTimer = setTimeout(() => {
+      startVideoNow();
+    }, 3500);
+  }
+}
+
+function startVideoNow(){
+  const overlay = document.getElementById('videoOverlay');
+  const video = document.getElementById('finalVideo');
+  const unmuteBtn = document.getElementById('unmuteBtn');
+  
+  overlay.classList.add('show');
+  
+  // Mobile policy bypass: initial play with mute
+  video.muted = true;
+  
+  video.play().then(() => {
+    unmuteBtn.innerText = "🔊 Tap for Sound";
+    unmuteBtn.style.display = 'block';
+  }).catch((err) => {
+    console.log("Play failed: ", err);
+    unmuteBtn.innerText = "▶ Tap to Play Video";
+    unmuteBtn.style.display = 'block';
+  });
+}
+
+function toggleAudio(){
+  const video = document.getElementById('finalVideo');
+  const unmuteBtn = document.getElementById('unmuteBtn');
+  
+  if(video.paused){
+    video.play();
+  }
+  
+  video.muted = false;
+  unmuteBtn.style.display = 'none';
+}
+
+// Automatically close overlay when video ends
+document.getElementById('finalVideo').addEventListener('ended', () => {
+  document.getElementById('videoOverlay').classList.remove('show');
+});
+</script>
+
+</body>
+</html>  0%,100%{opacity:.2;transform:scale(.7)}
+  50%{opacity:1;transform:scale(1.5)}
+}
+
+.content{ width:100%; max-width:430px; text-align:center; animation:fadeUp 1s ease; }
+@keyframes fadeUp{ from{opacity:0;transform:translateY(25px)} to{opacity:1;transform:translateY(0)} }
+
+.korean{ font-size:13px; letter-spacing:4px; color:#cba7ff; margin-bottom:20px; }
+.small{ font-size:14px; line-height:1.8; color:#c8bfd4; }
+h1{
+  font-family:'Playfair Display',serif; font-size:48px; line-height:1.1; margin-bottom:18px;
+  background:linear-gradient(120deg,#fff,#d8b8ff,#fff); -webkit-background-clip:text; color:transparent;
+}
+h2{ font-family:'Playfair Display',serif; font-size:32px; margin-bottom:20px; }
+p{ font-size:16px; line-height:1.9; color:#ddd4e7; }
+.highlight{ color:#d8b2ff; }
+
+.btn{
+  margin-top:32px; padding:14px 25px; border:1px solid rgba(203,167,255,.5);
+  border-radius:50px; background:rgba(150,80,255,.12); color:white;
+  font-size:14px; letter-spacing:1px; cursor:pointer;
+  box-shadow:0 0 25px rgba(135,70,255,.15); transition:.3s;
+}
+.btn:active{ transform:scale(.95); background:rgba(150,80,255,.3); }
+
+.card{
+  padding:27px 22px; border-radius:25px; border:1px solid rgba(203,167,255,.2);
+  background:rgba(255,255,255,.045); backdrop-filter:blur(12px); box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.line{ margin:12px 0; }
+.name{
+  font-family:'Playfair Display',serif; font-size:58px; letter-spacing:8px;
+  background:linear-gradient(120deg,#b57cff,#fff,#b57cff); -webkit-background-clip:text; color:transparent;
+  animation:glow 3s infinite;
+}
+
+@keyframes glow{ 0%,100%{filter:drop-shadow(0 0 8px rgba(180,110,255,.2))} 50%{filter:drop-shadow(0 0 25px rgba(180,110,255,.7))} }
+.quote{ margin:25px 0; font-family:'Playfair Display',serif; font-size:22px; line-height:1.6; color:#f2e9ff; }
+.big-heart{ font-size:50px; margin:15px; animation:heart 1.5s infinite; }
+@keyframes heart{ 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
+.seoul{ font-size:13px; letter-spacing:3px; color:#8ee9c0; margin-top:18px; }
+.footer{ position:absolute; bottom:18px; font-size:11px; color:#6f647a; letter-spacing:2px; }
+
+/* Video Fullscreen Player */
+.video-overlay {
+  display: none; position: fixed; inset: 0; background: #000;
+  z-index: 10000; align-items: center; justify-content: center; opacity: 0;
   transition: opacity 1s ease-in-out;
 }
 .video-overlay.show { display: flex; opacity: 1; }
